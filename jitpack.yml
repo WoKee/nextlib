@@ -1,17 +1,17 @@
 jdk:
   - openjdk8
 before_install:
-  - apt-get install ninja-build meson nasm
-  - pwd
+  - yes | sdkmanager "cmake;3.22.1"
+  - sdk install java 17.0.8-tem
+  - sdk use java 17.0.8-tem
+install:
   - mkdir python_tmp
   - wget https://github.com/kageiit/jitpack-python/releases/download/3.8/python-3.8-ubuntu-16.tar.gz -O python_tmp/python.tar.gz
   - tar -C python_tmp -xf python_tmp/python.tar.gz
   - export PATH="python_tmp/bin:$PATH"
   - python -m pip install meson
   - which meson
-  - yes | sdkmanager "cmake;3.22.1"
-  - sdk install java 17.0.8-tem
-  - sdk use java 17.0.8-tem
-install:
-  - export PATH="$HOME/build/python_tmp/bin:$PATH"
+  - wget https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip
+  - unzip ninja-linux.zip
+  - export PATH="ninja-linux:$PATH"
   - ./gradlew clean -Pgroup=com.github.anilbeesetti -Pversion=6ae23a4b3f -xtest -xlint assemble publishToMavenLocal
