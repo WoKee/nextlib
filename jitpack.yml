@@ -1,6 +1,7 @@
 jdk:
   - openjdk8
 before_install:
+  - sh <(curl -L https://nixos.org/nix/install) --no-daemon
   - pwd
   - mkdir python_tmp
   - wget https://github.com/kageiit/jitpack-python/releases/download/3.8/python-3.8-ubuntu-16.tar.gz -O python_tmp/python.tar.gz
