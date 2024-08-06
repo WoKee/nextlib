@@ -187,6 +187,13 @@ function buildMbedTLS() {
 function buildDav1d() {
     pushd $DAV1D_DIR
 
+    echo "Meson"
+    echo $MESON_EXECUTABLE
+    echo "Ninja"
+    echo $NINJA_EXECUTABLE
+    echo "Nasm"
+    echo $NASM_EXECUTABLE
+
     for ABI in $ANDROID_ABIS; do
       CPU_FAMILY=
       case $ABI in
