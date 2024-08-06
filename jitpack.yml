@@ -11,3 +11,6 @@ before_install:
   - yes | sdkmanager "cmake;3.22.1"
   - sdk install java 17.0.8-tem
   - sdk use java 17.0.8-tem
+install:
+  - export PATH="$HOME/build/python_tmp/bin:$PATH"
+  - ./gradlew clean -Pgroup=com.github.anilbeesetti -Pversion=6ae23a4b3f -xtest -xlint assemble publishToMavenLocal
