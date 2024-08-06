@@ -6,7 +6,7 @@ before_install:
   - tar -C python_tmp -xf python_tmp/python.tar.gz
   - export PATH="python_tmp/bin:$HOME/.local/bin:$PATH"
   - python -m pip install meson
-  - ls $HOME/.local/bin
+  - python -m pip show meson
   - yes | sdkmanager "cmake;3.22.1"
   - sdk install java 17.0.8-tem
   - sdk use java 17.0.8-tem
