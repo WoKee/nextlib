@@ -2,7 +2,7 @@ name: Build nextlib
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dav1d ]
   pull_request:
 concurrency:
   group: build-${{ github.ref }}
